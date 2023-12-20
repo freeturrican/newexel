@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financial Data</title>
+</head>
+<body>
+  <h1>Financial Data</h1>
+  <div id="data-container"></div>
+
+  <script>
+    fetch('https://script.google.com/macros/s/AKfycb...YOUR_SCRIPT_ID.../exec')
+      .then(response => response.json())
+      .then(data => displayData(data));
+
+    function displayData(data) {
+      // Update the HTML with the fetched data
+      document.getElementById('data-container').innerText = JSON.stringify(data);
+    }
+  </script>
+</body>
+</html>
