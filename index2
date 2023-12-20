@@ -1,0 +1,28 @@
+<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Data</title>
+</head>
+<body>
+    <h1>Financial Data</h1>
+    <div id="data-container"></div>
+
+    <script>
+        // Replace 'YOUR_GOOGLE_SHEET_API_ENDPOINT' with your actual API endpoint
+        const apiEndpoint = 'https://script.google.com/macros/s/AKfycbwmlnnIpmBiN25ZVJNDXHVJhTz4CCYTJ2nu2YJG4puzQVC3MsX9qTdK9BP7VXwaIEwh/exec';
+
+        fetch(apiEndpoint)
+            .then(response => response.json())
+            .then(data => displayData(data))
+            .catch(error => console.error('Error fetching data:', error));
+
+        function displayData(data) {
+            // Update the HTML with the fetched data
+            const dataContainer = document.getElementById('data-container');
+            dataContainer.innerText = JSON.stringify(data, null, 2);
+        }
+    </script>
+</body>
+</html>
